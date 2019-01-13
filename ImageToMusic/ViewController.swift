@@ -12,6 +12,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var analyser = Palette()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,36 +21,51 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     
     @IBAction func uploadImage(_ sender: Any) {
-        selectAlbum()
+        selectImage()
+        analyseImage()
     }
     
     //MARK: 上传图片
     //选取相册
-    func selectAlbum(){
+    func selectImage(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let picker = UIImagePickerController()
             picker.delegate = self
             picker.sourceType = .photoLibrary
             picker.allowsEditing = false
-            self.present(picker, animated: true, completion: {
-                () -> Void in
-            })
+            self.present(picker, animated: true, completion: nil)
         } else {
             print("无法读取相册")
         }
     }
     
-    //设置代理
+    //选取图片完成
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         print(info)
         let image: UIImage!
         image = info[.originalImage] as? UIImage
+        //将图片显示在视图中
         imageView.image = image
+        //将图片传入，分析颜色组成
+        analyser = Palette.init(image: image)
         //图片控制器退出
-        picker.dismiss(animated: true, completion: {
-            () -> Void in
-        })
+        picker.dismiss(animated: true, completion: nil)
     }
+    //取消选择
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("已取消")
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: 分析图片
+    func analyseImage(){
+        
+        //analyser.startToAnalyze(for: .ALL_MODE_PALETTE, withCallBack: )
+    }
+    
+    
+    //MARK: 生成音乐
+    
 }
 
