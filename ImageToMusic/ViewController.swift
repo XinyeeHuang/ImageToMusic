@@ -50,6 +50,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         picker.dismiss(animated: true, completion: nil)
         canTurn = true
     }
+    
     //取消选择
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("已取消")
@@ -57,11 +58,20 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     
+    
     //MARK: 页面跳转
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination
         if let colorPickerVC = destinationVC as? ColorPickerViewController, segue.identifier == "didUpload", canTurn == true {
+            //成功加载图片之后才能跳转，使用canTurn作为是否跳转的条件
+            //【尝试不用两个按钮，上传图片成功后自动跳转的方法】
             colorPickerVC.userImage = image
+        } else {
+            //若未成功上传，提示用户上传图片
+            let alert = UIAlertController(title: "提示", message: "请先上传图片", preferredStyle: .alert)
+            let action = UIAlertAction(title: "好", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
     }
 }
