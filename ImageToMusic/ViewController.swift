@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    var image: UIImage!
+    //图片是否加载成功，页面可以跳转
+    var canTurn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +43,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         print(info)
-        let image: UIImage!
         image = info[.originalImage] as? UIImage
         //将图片显示在视图中
         imageView.image = image
         //图片控制器退出
         picker.dismiss(animated: true, completion: nil)
+        canTurn = true
     }
     //取消选择
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -53,5 +56,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    //MARK: 页面跳转
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination
+        if let colorPickerVC = destinationVC as? ColorPickerViewController, segue.identifier == "didUpload", canTurn == true {
+            colorPickerVC.userImage = image
+        }
+    }
 }
 

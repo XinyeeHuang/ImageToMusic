@@ -12,6 +12,7 @@
 		035FECFE21E8C57F0059D11E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035FECFC21E8C57F0059D11E /* Main.storyboard */; };
 		035FED0021E8C5810059D11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035FECFF21E8C5810059D11E /* Assets.xcassets */; };
 		035FED0321E8C5810059D11E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035FED0121E8C5810059D11E /* LaunchScreen.storyboard */; };
+		035FED4321EC2D3B0059D11E /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035FED4221EC2D3B0059D11E /* ColorPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		035FECFF21E8C5810059D11E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		035FED0221E8C5810059D11E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		035FED0421E8C5810059D11E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		035FED4221EC2D3B0059D11E /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		035FECF721E8C57F0059D11E /* ImageToMusic */ = {
 			isa = PBXGroup;
 			children = (
+				035FED4221EC2D3B0059D11E /* ColorPickerViewController.swift */,
 				035FECF821E8C57F0059D11E /* AppDelegate.swift */,
 				035FECFA21E8C57F0059D11E /* ViewController.swift */,
 				035FECFC21E8C57F0059D11E /* Main.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				035FECFB21E8C57F0059D11E /* ViewController.swift in Sources */,
 				035FECF921E8C57F0059D11E /* AppDelegate.swift in Sources */,
+				035FED4321EC2D3B0059D11E /* ColorPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

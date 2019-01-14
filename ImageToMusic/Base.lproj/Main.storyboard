@@ -34,6 +34,18 @@
                                 <rect key="frame" x="67" y="100" width="241" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ct-cs-LaU">
+                                <rect key="frame" x="108" y="514" width="158" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="生成音乐">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6pE-cS-ROq" kind="show" identifier="didUpload" id="7y3-Pt-426"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -46,20 +58,32 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="131.78410794602701"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Picker View Controller-->
         <scene sceneID="d75-sk-OyV">
             <objects>
-                <viewController id="6pE-cS-ROq" sceneMemberID="viewController">
+                <viewController id="6pE-cS-ROq" customClass="ColorPickerViewController" customModule="ImageToMusic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2du-2Z-Duj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="RkG-qn-dS9">
+                                <rect key="frame" x="56" y="74" width="262" height="518"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="t1x-0e-3Yh"/>
                     </view>
+                    <connections>
+                        <outlet property="userImageView" destination="RkG-qn-dS9" id="kFk-sT-57o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTt-d1-dBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="132"/>
+            <point key="canvasLocation" x="948" y="131.78410794602701"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultImage" width="648" height="1152"/>
+    </resources>
 </document>
