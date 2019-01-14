@@ -12,8 +12,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     @IBOutlet weak var imageView: UIImageView!
     
-    var analyser = Palette()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,7 +20,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     @IBAction func uploadImage(_ sender: Any) {
         selectImage()
-        analyseImage()
     }
     
     //MARK: 上传图片
@@ -47,8 +44,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         image = info[.originalImage] as? UIImage
         //将图片显示在视图中
         imageView.image = image
-        //将图片传入，分析颜色组成
-        analyser = Palette.init(image: image)
         //图片控制器退出
         picker.dismiss(animated: true, completion: nil)
     }
@@ -57,15 +52,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         print("已取消")
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    //MARK: 分析图片
-    func analyseImage(){
-        
-        //analyser.startToAnalyze(for: .ALL_MODE_PALETTE, withCallBack: )
-    }
-    
-    
-    //MARK: 生成音乐
     
 }
 
